@@ -19,16 +19,16 @@ public class GitHubService implements APIConfiguration {
 
     public GitHubService() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API_BASE_URL)
+                .baseUrl(API_BASE_URL_GH)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         service = retrofit.create(GistInterface.class);
-        this.accessToken = "token " + "752b291c59a2fc5494c0eea9ffcdff5bbbfca256";
+        this.accessToken = "token " + "dbfa0091d842781b534f965b81115eda4323d4fb";
     }
 
     public List<Gist> getPublicGists(String username) throws IOException {
-        Call<List<Gist>> retrofitCall = service.listGists(accessToken, API_VERSION_SPEC, username);
+        Call<List<Gist>> retrofitCall = service.listGists(accessToken, API_VERSION_SPEC_GH, username);
 
         Response<List<Gist>> response = retrofitCall.execute();
 
