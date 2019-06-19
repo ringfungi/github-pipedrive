@@ -13,17 +13,9 @@ import java.util.List;
 public class GitHubClientController {
     @Autowired
     private GitHubService githubService;
-    @Autowired
-    private PipedriveService pipedriveService;
 
-    @GetMapping("/users/{username}/gists")
-    public List<Gist> getGists(@PathVariable("username") String username) throws IOException {
-        return githubService.getPublicGists(username);
+    @GetMapping("/newgists/{username}")
+    public List<Gist> getNewGists(@PathVariable("username") String username) throws IOException {
+        return githubService.getNewPublicGists(username);
     }
-
-    /*@PostMapping("/deals/")
-    public int postDeal() throws IOException {
-        return pipedriveService.postNewDeal();
-    }*/
-
 }

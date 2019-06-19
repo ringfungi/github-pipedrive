@@ -13,6 +13,10 @@ import java.util.List;
 @Service
 public class GitHubService implements APIConfiguration {
 
+    private String currentUsername;
+
+    private int lastIndex;
+
     private String accessToken;
 
     private GistInterface service;
@@ -37,6 +41,27 @@ public class GitHubService implements APIConfiguration {
                     ? response.errorBody().string() : "Unknown error");
         }
 
+        currentUsername = username;
+        //System.out.println(response.getClass().getDeclaredFields();
+
+        //System.out.println(response.body().get(0).getDescription());
         return response.body();
+    }
+
+    public List<Gist> getNewPublicGists(String username) throws IOException {
+
+        if (!currentUsername.equals(username))
+            return null;
+
+        Call<List<Gist>> retrofitCall = service.listGists(accessToken, API_VERSION_SPEC_GH, username);
+
+        Response<List<Gist>> response = retrofitCall.execute();
+
+
+        return response.body().subList(lastIndex, response.body().size());
+
+        //System.out.println(response.getClass().getDeclaredFields();
+
+        //System.out.println(response.body().get(0).getDescription());
     }
 }

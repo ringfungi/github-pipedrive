@@ -24,15 +24,13 @@ public class PipedriveService implements APIConfiguration{
 
         service = retrofit.create(DealInterface.class);
 
-        System.out.println("pipedriveService\n");
         this.APIToken = "4e6d5d8957b6e844c0108867da6bb0d81fa88192";
 
     }
 
-    public int postNewDeal() throws IOException {
-        Call<Map<String, Object>> retrofitCall = service.postDeal(APIToken, "deal1", 1);
+    void postNewDeal(String dealTitle, int orgID) throws IOException {
+        Call<Map<String, Object>> retrofitCall = service.postDeal(APIToken, dealTitle, orgID);
 
-        System.out.println("postNewDeal - after call\n");
         Response<Map<String, Object>> response = retrofitCall.execute();
 
         System.out.println(response.raw());
@@ -42,6 +40,5 @@ public class PipedriveService implements APIConfiguration{
                     ? response.errorBody().string() : "Unknown error");
         }*/
 
-        return 0;
     }
 }

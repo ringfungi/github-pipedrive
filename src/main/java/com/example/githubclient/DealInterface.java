@@ -11,7 +11,7 @@ import java.util.Map;
 public interface DealInterface {
 
     @FormUrlEncoded
-    @POST("/v1//deals")
+    @POST("/v1/deals")
     Call<Map<String, Object>> postDeal(@Query("api_token") String api_token,
                                   @Field("title") String title,
                                   @Field("org_id") int org_id);
