@@ -15,7 +15,7 @@ public class GitHubService implements APIConfiguration {
 
     private String currentUsername;
 
-    private int lastIndex;
+    private int firstSubmemberIndex = 0;
 
     private String accessToken;
 
@@ -50,15 +50,16 @@ public class GitHubService implements APIConfiguration {
 
     public List<Gist> getNewPublicGists(String username) throws IOException {
 
-        if (!currentUsername.equals(username))
+        if (!currentUsername.equals(username)){
+            firstSubmemberIndex = 0;
             return null;
+        }
 
         Call<List<Gist>> retrofitCall = service.listGists(accessToken, API_VERSION_SPEC_GH, username);
 
         Response<List<Gist>> response = retrofitCall.execute();
 
-
-        return response.body().subList(lastIndex, response.body().size());
+        return response.body().subList(firstSubmemberIndex, response.body().size()-1    );
 
         //System.out.println(response.getClass().getDeclaredFields();
 
