@@ -28,7 +28,7 @@ public class GitHubService implements APIConfiguration {
                 .build();
 
         service = retrofit.create(GistInterface.class);
-        this.accessToken = "token " + "dbfa0091d842781b534f965b81115eda4323d4fb";
+        this.accessToken = "token " + "2148919fbcf2a763582d9f300fab23f36deffca8";
     }
 
     public List<Gist> getPublicGists(String username) throws IOException {
