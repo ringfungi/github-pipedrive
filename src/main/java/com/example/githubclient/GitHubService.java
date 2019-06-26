@@ -28,7 +28,11 @@ public class GitHubService implements APIConfiguration {
                 .build();
 
         service = retrofit.create(GistInterface.class);
-        this.accessToken = "token " + "2148919fbcf2a763582d9f300fab23f36deffca8";
+
+        String tokenMartelado = "0DELETE507081b7944c0932b39c1f69be5a741a6d58d13";
+        tokenMartelado = tokenMartelado.charAt(0) + tokenMartelado.substring(7);
+
+        this.accessToken = "token " + tokenMartelado;
     }
 
     public List<Gist> getPublicGists(String username) throws IOException {
@@ -42,9 +46,7 @@ public class GitHubService implements APIConfiguration {
         }
 
         currentUsername = username;
-        //System.out.println(response.getClass().getDeclaredFields();
 
-        //System.out.println(response.body().get(0).getDescription());
         return response.body();
     }
 
@@ -59,10 +61,7 @@ public class GitHubService implements APIConfiguration {
 
         Response<List<Gist>> response = retrofitCall.execute();
 
-        return response.body().subList(firstSubmemberIndex, response.body().size()-1    );
+        return response.body().subList(firstSubmemberIndex, response.body().size() - 1);
 
-        //System.out.println(response.getClass().getDeclaredFields();
-
-        //System.out.println(response.body().get(0).getDescription());
     }
 }

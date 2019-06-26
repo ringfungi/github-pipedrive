@@ -24,7 +24,7 @@ public class PipedriveService implements APIConfiguration{
 
         service = retrofit.create(DealInterface.class);
 
-        this.APIToken = "4e6d5d8957b6e844c0108867da6bb0d81fa88192";
+        this.APIToken = "1ec14171ac95d8b67eeda5b3ec266fe136ece8df";
 
     }
 
