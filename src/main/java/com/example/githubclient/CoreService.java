@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,8 +19,7 @@ public class CoreService {
     private PipedriveService pipedriveService;
 
     private String userName;
-
-    @PostConstruct
+    
     public void usernameGet (String username, String APIToken) throws IOException {
 
         userName = username;
