@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class CoreService {
 
     private String userName;
 
-    @PostConstruct
+    //@PostConstruct
     public void usernameGet (String username, String APIToken) throws IOException {
 
         userName = username;
