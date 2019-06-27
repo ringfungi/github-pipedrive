@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
 
 @Service
 @Configuration
@@ -20,19 +19,15 @@ public class CoreService {
     @Autowired
     private PipedriveService pipedriveService;
 
-    private int i = 0;
     private String userName;
 
     @PostConstruct
-    public void usernamePrompt () throws IOException {
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("Enter a GitHub username to check for its public gists:");
+    public void usernameGet (String username, String APIToken) throws IOException {
 
-        userName = myObj.nextLine();
-        System.out.println("Username: " + userName);
+        userName = username;
 
         List<Gist> userGists;
-        userGists = getGists(userName);
+        userGists = getGists(userName, APIToken);
 
         for (int i = 0; i < userGists.size(); i++) {
             System.out.println(userGists.get(i).getDescription());
@@ -40,8 +35,8 @@ public class CoreService {
             createDeal(userGists.get(i).getDescription(), userGists.get(i).getComments());
         }
     }
-    List<Gist> getGists(String userName) throws IOException {
-        return gitHubService.getPublicGists(userName);
+    List<Gist> getGists(String userName, String APIToken) throws IOException {
+        return gitHubService.getPublicGists(userName, APIToken);
     }
 
     //@Scheduled(fixedDelay = 50000, initialDelay = 50000)

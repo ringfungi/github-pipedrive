@@ -35,10 +35,6 @@ public class PipedriveService implements APIConfiguration{
 
         System.out.println(response.raw());
 
-        /*if (!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : "Unknown error");
-        }*/
 
     }
 }

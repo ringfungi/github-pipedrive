@@ -17,7 +17,7 @@ public class GitHubService implements APIConfiguration {
 
     private int firstSubmemberIndex = 0;
 
-    private String accessToken;
+    //private String accessToken;
 
     private GistInterface service;
 
@@ -29,14 +29,14 @@ public class GitHubService implements APIConfiguration {
 
         service = retrofit.create(GistInterface.class);
 
-        String tokenMartelado = "0DELETE507081b7944c0932b39c1f69be5a741a6d58d13";
-        tokenMartelado = tokenMartelado.charAt(0) + tokenMartelado.substring(7);
+        //String tokenMartelado = "0DELETE507081b7944c0932b39c1f69be5a741a6d58d13";
+        //tokenMartelado = tokenMartelado.charAt(0) + tokenMartelado.substring(7);
 
-        this.accessToken = "token " + tokenMartelado;
+        //this.accessToken = "token " + APIToken;
     }
 
-    public List<Gist> getPublicGists(String username) throws IOException {
-        Call<List<Gist>> retrofitCall = service.listGists(accessToken, API_VERSION_SPEC_GH, username);
+    public List<Gist> getPublicGists(String username, String APIToken) throws IOException {
+        Call<List<Gist>> retrofitCall = service.listGists(APIToken, API_VERSION_SPEC_GH, username);
 
         Response<List<Gist>> response = retrofitCall.execute();
 
@@ -50,14 +50,14 @@ public class GitHubService implements APIConfiguration {
         return response.body();
     }
 
-    public List<Gist> getNewPublicGists(String username) throws IOException {
+    public List<Gist> getNewPublicGists(String username, String APIToken) throws IOException {
 
         if (!currentUsername.equals(username)){
             firstSubmemberIndex = 0;
             return null;
         }
 
-        Call<List<Gist>> retrofitCall = service.listGists(accessToken, API_VERSION_SPEC_GH, username);
+        Call<List<Gist>> retrofitCall = service.listGists(APIToken, API_VERSION_SPEC_GH, username);
 
         Response<List<Gist>> response = retrofitCall.execute();
 
