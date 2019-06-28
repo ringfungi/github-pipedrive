@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    height: 100vh;
+}
+
+.welcome{
+
+    margin: 20px 20px;
+}
+.welcome h2 {
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 48px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.welcome p {
+    padding: 10px 10px;
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.input-items{
+    margin: 20px 20px;
+}
+
+.input-items button {
+    display: block;
+    background: #4fc06a;
+    color: #fff;
+    padding: 14px 20px;
+    margin: 12px 0px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease-in;
+    border-radius: 5px;
+}
+
+.input-items input {
+    width: 500px;
+    padding: 8px;
+    border: 1px dimgray solid;
+    font-size: 24px;
+    border-radius: 5px;
+
+}
+
+.input-items input:focus {
+    background: rgb(161, 197, 132);
+    border: 1px solid #d8ae47;
+}
+
+.apiKey input, button {
+    padding: 8px;
+    font-size: 14px;
+}
+
+.apiKey input {
+    width: 30vw;
+}
+
+.apiKey button {
+    background: #cbcdce;
+    color: #000;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 8px 0px;
+}
+.resp-display  {
+    /* text-align: center; */
+    margin: 20px 0px;
+    margin-left: 30px;
+    max-height: 30vh;
+    overflow: scroll;
+}
+
+ul {
+    list-style: none;
+    width: 50vw;
+    /* text-align: center; */
+}
+
+li {
+    color: #000;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+li:hover {
+    background: rgb(161, 197, 132);
+}
+
+.update {
+    position: absolute;
+    left: 20vw;
+    bottom: 5vh;
+}
+
+#update {
+color:  #00831f;
+}

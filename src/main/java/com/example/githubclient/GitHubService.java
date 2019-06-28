@@ -52,16 +52,15 @@ public class GitHubService implements APIConfiguration {
 
     public List<Gist> getNewPublicGists(String username, String APIToken) throws IOException {
 
-        if (!currentUsername.equals(username)){
+       /* if (!currentUsername.equals(username)){
             firstSubmemberIndex = 0;
             return null;
-        }
+        } */
 
         Call<List<Gist>> retrofitCall = service.listGists(APIToken, API_VERSION_SPEC_GH, username);
 
         Response<List<Gist>> response = retrofitCall.execute();
-
-        return response.body().subList(firstSubmemberIndex, response.body().size() - 1);
+        return response.body().subList(firstSubmemberIndex, response.body().size());
 
     }
 }

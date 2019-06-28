@@ -14,9 +14,13 @@ public class GitHubClientController {
     @Autowired
     private GitHubService githubService;
 
+    @Autowired
+    private CoreService coredService;
+
     @GetMapping("/newgists/{username}/{api_token}")
     public List<Gist> getNewGists(@PathVariable("username") String username,
                                   @PathVariable("api_token") String api_token) throws IOException {
+        coreService.usernameGet(username, api_token);
         return githubService.getNewPublicGists(username, api_token);
     }
 }

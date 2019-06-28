@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Github & Pipedrive API</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="welcome">
+        <h2> Welcome!</h2>
+        <p>Github api and Pipedrive api implementation</p>
+    </div>
+    <div class="apiKey" >
+        <input required type="text" placeholder="Enter api token..." id="apiKey">
+        <button id="setKey">Set key</button>
+        <button id="lastToken">Last used</button>
+        <p style="color: red" id="error"> </p>
+
+    </div>
+    <div class="input-items">
+        <input type="text" placeholder="Enter Github Username..." id="userName">
+        <button id="getGist">Get gists / Create deals </button>
+    </div>
+    <div class="resp-display">
+        <h3>List of Gists and details</h3>
+        <div id="list">
+            <ul id="list-ul">
+                <br>
+            </ul>
+        </div>
+    </div>
+    <div class="update">
+        <br>
+        <br>
+        <h4>updated gist: <span id="update"> </span> </h4>
+
+       <!-- <h4>Updated content: <span id="newData"> </span></h4> -->
+    </div>
+</div>
+<script src="./app.js"></script>
+</body>
+</html>
