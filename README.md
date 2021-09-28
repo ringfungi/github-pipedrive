@@ -11,11 +11,10 @@ It was developed using Retrofit, an HTTP client library, to define interfaces fo
 To make Gradle run the app:
 ```
 ./gradlew bootRun
-
 ```
 
 Front end:
-It was developed using vanilla JS, HTML and CSS. The simple UI includes field to insert a Github token, which with the **Set key** button can be saved to local storage for later use or for making the next calls. The **Last used** button reads the last token used to make calls and places it on the token input field.
+It was developed using vanilla JS, HTML and CSS. The simple UI includes a field to insert a Github token, which with the **Set key** button can be saved to local storage for later use or for making the next calls. The **Last used** button reads the last token used to make calls and places it on the token input field.
 
 The Github username field accepts a username to retrieve available public gists for that user and also creates a Pipedrive deal for each gist. The username will be saved on **lastSeen** for periodic checks (every three hours) to see if any new gists have been created since the last visit; if so, **updated gist** will display a message.
 
@@ -23,7 +22,7 @@ The Github username field accepts a username to retrieve available public gists 
 
 The app is in a **Docker container** and managed by **Kubernetes** on **Google Kubernetes Engine cluster**. This makes the app easily scalable, easy to manage and update. The details and processes of the deployment can be seen at GCP [Documentation](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app) section.
 
-Some details of about the Kubernetes Engine used:
+Some details about the Kubernetes Engine used:
 * Number of nodes - 2
 * Total cores - 2 vCPUs
 * Total memory - 7.50 GB
